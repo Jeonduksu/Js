@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 인덱스번호를 정해서 정확하게 가져온다 -->
+  <script>
+    function test(){
+      let val = document.getElementsByName("test")[0].value;
+      window.opener.document.getElementById("tt").innerHTML = val;
+    }
+  </script>
+</head>
+<!-- 자식이 부모로 전달하는 
+  여기서 opener란 부모의창을 뜻한다
+-->
+<body>
+   <input type="text" name="test">
+   <input type="button" onclick="test();" value="전달">
+</body>
+</html>

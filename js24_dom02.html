@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom 생성</title>
+  <!-- 
+    여기서 말하는 엘리먼트는 태그를 말한다
+   -->
+  <script>
+    function eleCreate(){
+      let div = document.createElement("div");
+      // <div></div>
+      console.log(div);
+
+
+      // 텍스트 추가
+      let txt = document.createTextNode("엘리먼트 생성 메소드");
+      // <div>엘리먼트 생성 메소드</div>
+      // 태그안에 텍스트 추가 태그 appendChild
+      div.appendChild(txt);
+      // console.log(div);
+
+      //1.속성 추가방식
+      let attr = document.createAttribute("style");
+      // style==""
+      attr.nodeValue="border:2px solid blue";
+      // style = "border:2px solid blue"
+
+      // div에 집어넣기
+      div.setAttributeNode(attr);
+      // <div  style = "border:2px solid blue">엘리먼트 생성 메소드</div>
+
+      //2. 원하는 속성 추가
+      div.setAttribute("class","test");
+      //<div  style = "border:2px solid blue" class="test">엘리먼트 생성 메소드</div>
+
+      document.body.appendChild(div);
+    }
+  </script>
+</head>
+<body>
+  <button onclick="eleCreate();">생성!</button>
+</body>
+</html>

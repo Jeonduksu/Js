@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom 연습</title>
+  <style>
+    img,#imgView{
+      width: 300px;
+      height: 400px;
+    }
+  </style>
+  <script>
+    // 1) 체크된거를 이미지 갖고온다
+      function createImg(){
+        let radios = document.getElementsByName("rdoBtn");
+      let radioVal = "";
+
+      for(let i=0; i<radios.length; i++){
+        // radio중 체크 된거 확인
+        if(radios[i].checked){
+          // image에 경로를 넣어준다
+          radioVal = "image/"+radios[i].value;
+          break;
+        }
+      }
+
+      // 1.img 태그 생성
+      let img = document.createElement("img");
+
+      //2. src 속성 radioVal값 넣어주고 
+      img.setAttribute("src",radioVal);
+
+      // document.getElementById("imgView").appendChild(img);
+
+      // 3.
+      let div = document.getElementById("imgView");
+      let chd = document.querySelector("#imgView > img");
+
+      // 자식을 바꾼다
+      div.replaceChild(img, chd);
+      }
+
+      function deleteImg(){
+        // setAttribute()
+        let img = document.querySelector("#imgView > img");
+        img.setAttribute("src","image/img04.PNG");
+      }
+  </script>
+</head>
+<body>
+  <input type="radio" name="rdoBtn" value="img01.png">그림1<br>
+  <input type="radio" name="rdoBtn" value="img02.png">그림2<br>
+  <input type="radio" name="rdoBtn" value="img03.png">그림3<br>
+
+  <button onclick="createImg();">이미지 생성하기</button>
+  <button onclick="deleteImg();">이미지 삭제하기</button>
+  <div id="imgView"><img src="image/img04.PNG"></div>
+</body>
+</html>

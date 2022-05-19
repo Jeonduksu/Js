@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #gallery{
+      width: 200px;
+      height: 250px;
+      vertical-align: middle;
+    }
+    a{
+      font-size: 40pt;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+
+  <script>
+    // 전역변수 선언
+    let num =1; 
+
+    function nextGallery(){
+      num++;
+      console.log(num);
+      if(num>4){
+        num=1;
+      }
+      document.getElementById("gallery").src ="image/img0"+num+".png";     //특별이벤트
+      return false;
+      // 바꼇다가 새로고침되면서 복구되는걸 막는다
+      //  그걸 취소해버리는것을 return false
+    }
+    function prevGallery(){
+      num--;
+      if(num < 1){
+        num=4;
+      }
+      document.getElementById("gallery").src="image/img0"+num+".png";
+      return false;
+    }
+  </script>
+</head>
+<body>
+  <div id="galleryWrap">
+    <p>
+      <a onclick="return prevGallery();" href="http://naver.com">←</a>
+      <img src="./image/img01.png" id="gallery">
+      <a onclick="return nextGallery();" href="http://naver.com">→</a>
+      <!-- 태그에도 return 넣어줘야된다 
+      return 걸어주는 이유는 naver로 이동하는걸 멈춘다
+      href 기본이벤트
+      -->
+    </p>
+  </div>
+</body>
+</html>

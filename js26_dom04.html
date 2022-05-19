@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom 연습</title>
+  <style>
+    img{
+      width: 300px;
+      height: 400px;
+      vertical-align: middle;
+    }
+    a{
+      font-size:50px;
+      text-decoration: none;
+    }
+  </style>
+  <script>
+    window.onload=function(){
+      let cnt = 1;
+
+
+      let img = document.querySelector("img");
+      let atags = document.querySelectorAll("a");
+
+      // load가 있어야 이벤트 연결이 된다.
+      // load가 없으면 클릭이 안된다.
+      //왼쪽 a태그 클릭
+      atags[0].onclick = function(){
+        // alert("asdf");
+        let imgAlt = img.getAttribute("alt");
+        // consoloe.log(imgAlt);
+        if(imgAlt == "img01"){
+          // 맨처음이미지
+          cnt=3;
+          img.setAttribute("alt","img03");
+          // 마지막이미지로
+          img.setAttribute("src","image/img03.png");
+        }else{
+          // 3번째에서 이전버튼
+          // 감소해서 밑에건 감소할 필요가 없다.
+          // -- cnt; 먼저감소해서 사용간ㅇ
+          img.setAttribute("alt","img0"+(--cnt));
+          img.setAttribute("src","image/img0" + cnt+".png");
+        }
+      }
+
+      //오른쪽 a태그 클릭
+      atags[1].onclick = function(){
+        let imgAlt = img.getAttribute("alt");
+        if(imgAlt == "img03"){
+          // 맨마지막 페이지
+          cnt=1;
+          img.setAttribute("alt","img01");
+          // 맨처음이미지로
+          img.setAttribute("src","image/img01.png");
+        }else{
+          // 3번째에서 이전버튼
+          img.setAttribute("alt","img0"+(++cnt));
+          img.setAttribute("src","image/img0" + cnt+".png");
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <a href="#" id="lt">←</a>
+    <img src="image/img01.png" alt="img01">
+    <a href="#" id="rt">→</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom 탐색</title>
+  <script>
+    function searchPar(){
+      let child02 = document.getElementsByTagName("p")[1];
+      console.log(child02);
+
+      //부모태그 구하기
+      let parent = child02.parentNode;
+      console.log(parent);
+      parent.style.backgroundColor = "black";
+    }
+
+    //자식태그 탐색하기
+    function searchChi(){
+      let parent = document.getElementsByTagName("div")[0];
+
+      //자식태그들
+      let children = parent.childNodes;
+      // console.log(children);
+      for(let i=0; i<children.length; i++){
+        console.log(children[i].nodeName);
+      }
+      children[5].style.backgroundColor = 'pink';
+      // 자식이 없으면 text 한개 밖에 안나온다
+      // text와 태그들을 node라고 생각해서 Nodes라고해서 다데리고온다.
+    }
+    // 부모
+    function test01(){
+      let test = document.getElementsByTagName("p")[3];
+      console.log(test);
+
+      let parent01 = test.parentNode;
+      console.log(parent01);
+      parent01.style.backgroundColor = "aqua";
+    }
+    //자식
+    function test02(){
+      let child = document.getElementsByTagName("div")[2];
+
+      let child1 = child.childNodes;
+      // console.log(child1);
+      for(let i=0; i<child1.length; i++){
+        console.log(child1[i].nodeName);
+      }
+      child1[3].style.fontSize="20pt";
+    }
+  </script>
+</head>
+<body>
+  <h1>부모탐색, 자식탐색</h1>
+  <div>
+    <p>child01</p>
+    <p>child02</p>
+    <p>child03</p>
+  </div>
+  <button onclick="searchPar();">부모탐색</button>
+  <button onclick="searchChi();">자식탐색</button>
+
+  <h3 onclick="test01();">1. "test01태그를 포함한 div태그"에 배경색을 적용하자</h3>
+  <h3 onclick="test02();">2. "마지막 div 태그에 포함된 test04 태그"의 폰트 크기를 20pt 적용하자</h3>
+
+  <div>
+    <p>test01</p>
+    <p>test02</p>
+  </div>
+  <div>
+    <p>test03</p>
+    <p>test04</p>
+  </div>
+</body>
+</html>

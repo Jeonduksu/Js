@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- document : 문서 -->
+  <!-- 
+    getElementById로 Id를 가져온다
+    HTML태그로 안에 내용 변경
+   -->
+  <script>
+    function searchId(){
+      let doc = document.getElementById("test");
+      doc.innerHTML = "<b>id로 탐색합니다.</b>";
+      doc.style.color = "red";
+    }
+
+    // 여러개를 가져올거라서 ElementsByName s를 붙여줘야된다
+    // 낱개씩 가져오고 싶으면 인덱스번호만 가져오면된다
+    function searchName(){
+      let doc = document.getElementsByName("test02");
+      console.log(doc);
+      doc[1].value = "name 속성으로 엘리먼트 탐색";
+    }
+    // 인덱스번호 안정하고 doc만 하면 적용이 안된다
+    // 전체에다 주고 싶으면 반복문으로 해서 넣으면 된다
+
+    function searchTagName(){
+      let doc = document.getElementsByTagName('p');
+      doc[3].innerHTML = "tagName으로 탐색";
+      doc[3].style.color = "blue";
+    }
+
+    function searchQs(){
+      let doc = document.querySelector("p");
+      let doc2 = document.querySelectorAll("p");
+      console.log(doc);
+      console.log(doc2);
+
+      doc2[4].innerHTML = "querySelectorAll(css선택자)";
+    }
+  </script>
+</head>
+<body>
+  <p>DOM(document Object Model) 탐색 함수</p>
+  <p onclick="searchId();" id="test">1. 엘리먼트의 id로 탐색: 엘리먼트 하나를 선택(중복불가)</p>
+  <p onclick="searchName();">2.엘리먼트의  name으로 탐색: 엘리먼트 여러개를 선택
+    <br>
+    <input type="text" name="test02" value="" size="100%"><br>
+    <input type="text" name="test02" value="" size="100%"><br>
+    <input type="text" name="test02" value="" size="100%"><br> 
+  </p>
+
+  <p onclick="searchTagName();">3. 엘리먼트의 태그 이름으로 탐색: 엘리먼트 여러개를 선택</p>
+
+  <p onclick="searchQs();">4. css의 선택자를 이용하여 탐색: 엘리먼트 여러개를 선택</p>
+</body>
+</html>

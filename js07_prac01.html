@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    #area{
+      width: 400px;
+      height: 250px;
+      background-color: yellow;
+      margin-top: 5px;
+      border:1px solid black;
+    }
+  </style>
+
+  <script>
+      function val(){
+        let name = document.getElementsByTagName("input")[0].value;
+      }
+  
+      function val(){
+        let pname = document.getElementById("pn").value;
+      }
+  
+      function val(){
+        let price = document.getElementsByName("price")[0].value;
+      }
+
+      let area1 = document.getElementById("area");
+      area1.innerHTML += "구입자 : " + name + "님<br>";
+      area1.innerHTML += "구입상품 : " + pname + "<br>";
+      area1.innerHTML += "구매가격 : " + price + "만원";
+
+      //id로 설정했을때 가져오는법
+      // let 변수명 = document.getElementById(아이디명).value;
+  </script>
+</head>
+<body>
+  <h1>연습 1</h1>
+  구매자 : <input type="text" placeholder="구매자의 이름을 입력하세요" value="">
+  <br>
+  상품명 : <input type="text" id="pn" placeholder="구매 상품명을 입력하세요" value="">
+  <br>
+  가격 : <input type="text" name="price" placeholder="구매 가격을 입력하세요" value="">
+  <br>
+  <button onclick="val">입력값 출력하기</button>
+  <br>
+  <div id="area"></div>
+</body>
+</html>
