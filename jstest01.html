@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 연습</title>
+  <script>
+    // 전역변수와 지역변수 차이
+    // 전역변수 : 함수 외부에서 선언된 변수, 프로그램 전체에서 접근할 수 있는 변수
+    // 지역변수 : 함수 내부에서 선언된 변수, 함수가 실행되면 만들어지고
+    //              함수가 종료되면 소멸하는 변수, 함수 외부에선 접근할 수 없다.
+    //객체 생성1
+    function test1(){
+      this.name= "멀티캠퍼스";
+      let name02 = "504강의장";
+      this.getName02=function(){
+        return name02;
+      }
+    }
+
+    //객체 생성2
+    const myclass504_2 = {
+      name:"멀티 캠퍼스",
+      print:function(){
+        alert(myclass504_2.name+ " : print")
+      }
+    }
+
+    //프로토타입
+    test1.prototype.printName=function(){
+      let abc="메롱";
+      alert(this.name + " , " + this.getName02() + " : prototype" + abc);
+    }
+
+    function objTest(){
+      let cls = new test1();
+
+      console.log(cls.name);
+      console.log(cls.name02);
+      console.log(cls.getName02());
+    }
+
+  </script>
+</head>
+<body>
+  <h1> 객체 </h1>
+  <p>관련된 데이터와 함수의 집합</p>
+  <p>구성 : 함수, 속성, this, 프로토타입</p>
+  <p>키값을 사용하여 속성을 식별한다.</p>
+  <button onclick="objTest();"></button>
+</body>
+</html>
