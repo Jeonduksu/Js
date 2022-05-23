@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 연습</title>
+  <script>
+    function test1(){
+      let student={
+        name: '전덕수',
+        kor:97,
+        eng:62,
+        math:84
+      }
+      // for in 이라는 반복문
+      // 쉽게말해 for문 반복문안에 변수명을 하나 만들어서 배열의 변수명을 집어넣는다
+      // for(변수 변수명 in 위에작성했던변수명){
+      // console.log(변수명 + " : " + 위에작성했던변수명[변수명]);
+      // }
+      for(let key in student){
+        console.log(key + " : " + student[key]);
+      }
+    }
+    function test2(){
+      let person={};
+      console.log(person);
+      // 속성 추가
+      person.name = "전덕수";
+      person.hobby = '낚시';
+      person.job = "개발자";;
+      console.log(person);
+    }
+  </script>
+</head>
+<body>
+  <h3>객체와 반복문</h3>
+  <button onclick="test1();">반복문</button>
+
+  <h3>객체의 속성 추가</h3>
+  <button onclick="test2();">속성</button>
+</body>
+</html>

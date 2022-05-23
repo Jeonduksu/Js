@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>변수 연습</title>
+  <script type="text/javascript">
+    console.log(test1);
+    var test1=1;
+    console.log(test1);
+
+    // 전역변수
+    let variable = 10;
+
+    // 전역변수 접근방법
+    function test01(){
+      variable = variable +5;
+      document.getElementById("v01").innerHTML=
+        "<b>"+variable +"</b>"
+    }
+
+    function test02(){
+      const variable2 = variable + 100;
+      document.getElementById("v02").innerHTML=variable2
+    }
+
+  </script>
+</head>
+<body>
+  <h2>변수의 선언 규칙</h2>
+
+  <ol>
+    <li>대소문자 구분</li>
+    <li>영문, $, _,로 시작해야 한다.</li>
+    <li>영문, $, _, 숫자를 포함할 수 있다</li>
+    <li>키워드나 예약어를 사용할 수 없다.</li>
+
+    <!-- 범위는 2가지가 있다.
+    1. 전역변수 : 함수 외부에서 선언된 변수로, 프로그램 전체에서 접근할 수 있다
+    2. 지역변수 : 함수 내부에서 선언된 변수로, 함수가 실행되면 만들어지고 함수가 종료되면 소멸하는 변수이다.
+                  함수 외부에서는 접근할 수 없다
+    -->
+    <dt>범위</dt>
+    <dd>1. 전역변수
+    <button onclick="test01();">전역변수</button>
+    </dd>
+    <dd id="v01"></dd>
+    <dd>2.지역변수
+      <button onclick="test02();">지역변수</button>
+    </dd>
+    <div id="v02"></div>
+
+    <!-- 
+      주로 보통 우리가 많이 쓰는 변수는 let라고 생각하면된다
+      1)var : 매우 유연한 방식으로 변수를 선언(같은 변수를 두번 선언해도 오류가 안남)
+              function 단위의 scope값을 가진다
+      2)let : 상수를 선언 (한번 선언된 상수는 다시 재정의 X)
+              scope{}블록 단위의 값을 가진다
+      3)const : 변수를 선언(값을 재정의 할 수 있다)
+                scope{}블록 단위의 값을 가진다
+     -->
+    <dt>변수의 선언과 저장</dt>
+    <dd>1. var,let, const 키워드를 사용하여 변수 선언</dd>
+    <dd>2. 변수의 타입은 저장되는 데이터의 타입에 따라 결정된다
+      <button onclick="test03();"></button>
+    </dd>
+  </ol>
+</body>
+</html>

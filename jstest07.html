@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rolling</title>
+  <!-- rolling 
+    return을 잘 활용하자!!!!!
+  -->
+  <style>
+    div {
+      font-size: 50pt;
+      text-align: center;
+    }
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+  <script>
+    let num = 1;
+
+    function nextGallery(){
+      num++;
+      console.log(num);
+      if(num > 4){
+        num=1;
+      }
+      document.getElementById("gallery").src="image/img0"+num+".png";
+      return false;
+      // return 값을 보내준다
+    }
+
+    function prevGallery(){
+      num--;
+      if(num < 1){
+        num=4;
+      }
+      document.getElementById("gallery").src="image/img0"+num+".png";
+      return false;
+    }
+  </script>
+</head>
+<body>
+  <h3>a태그로 rolling 하는법 </h3>
+  <div id="galleryWrap">
+    <p>
+      <a onclick="return prevGallery();" href="https://www.naver.com">←</a>
+      <img src="./image/img01.png" id="gallery">
+      <a onclick="return nextGallery();" href="https://www.naver.com">→</a>
+      <!-- 여기서 return을 안하면 href 하이퍼링크까지 연결되기 때문에 return을 걸어줘야된다. -->
+    </p>
+  </div>
+</body>
+</html>
