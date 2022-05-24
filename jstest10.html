@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .area1{
+      border: 1px solid red;
+      height: 200px;
+    }
+  </style>
+  <script>
+    function test01(){
+      let doc = document.getElementById("area1");
+
+      let test = 7+7;
+      // 숫자 + 숫자
+      test = 7 + 7;
+      doc.innerHTML = '7 + 7 = ' +test + "<br>";
+
+      // 숫자 + 문자  = 숫자'문자' 가 된다
+      // ex)"7" 7를 문자로 지칭함으로써 
+      // 7 + 7  = 77 이 된다
+      test = 7 + "7";
+      doc.innerHTML += "<b>" + '7 + "7" = ' + test + "</b>"+"<br>";
+
+      // 이거또한 숫자 + 숫자 + 문자열 이기때문에
+      // 먼저 숫자끼리 더해주고 숫자 + 문자가 된다
+      // ex) 7 + 7 + "7" = 147 이다
+      // "7" 이 7는 문자열로 주었기 때문에 숫자랑 같이 더하면 붙어서 나온다
+      test = 7 + 7 + "7";
+      doc.innerHTML = "<b>" + '7 + 7 + "7" = ' + test + "</b>";
+    }
+
+    // 매개변수로 no.value 값을 받아오기때문에
+    // Number.parseInt < Number : 숫자, parseInt 정수형
+    // 두개 합치면 숫자정수형으로 변환한다는 뜻
+
+    function intTest(val){
+      let vals = Number.parseInt(val) + 15;
+      console.log(vals);
+    }
+
+    function floatTest(val){
+      let vals = parseFloat(val) + 15;
+      console.log(vals);
+    }
+  </script>
+</head>
+<body>
+  <h1>데이터의 형변환</h1>
+  <h3>문자와 숫자의 '+'연산</h3>
+  <button onclick="test01();">버튼!</button>
+  <div id="area1" class="area1"></div>
+
+  <hr>
+  <h3>정수형 형변환 parseInt()</h3>
+  <h3>실수형 형변환 parseFloat()</h3>
+  <input type="text" id="no">
+  <button onclick="intTest(no.value);">정수형</button>
+  <button onclick="floatTest(no.value);">실수형</button>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부모탐색(searchPar),자식탐색(searchChi)</title>
+  <script>
+    function searchPar(){
+      // 변수명 = 자식태그
+      let child = document.getElementsByTagName("p")[1];
+      console.log(child);
+
+      //부모태그 구하기
+      // 변수명 = 자식변수명.parentNode <부모 불러오는 태그
+      let parent = child.parentNode;
+      console.log(parent);
+      parent.style.backgroundColor = "aqua";
+    }
+
+    function searchChi(){
+      let doc = document.getElementsByTagName("div")[0];
+
+      let chi = doc.childNodes;
+      console.log(chi);
+    }
+  </script>
+</head>
+<body>
+  <h1>부모탐색, 자식탐색</h1>
+  <div>
+    <p>child01</p>
+    <p>child02</p>
+    <p>child03</p>
+  </div>
+  <button onclick="searchPar();">부모탐색</button>
+  <button onclick="searchChi();">자식탐색</button>
+</body>
+</html>
